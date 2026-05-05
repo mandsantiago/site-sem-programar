@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASY Produtos Digitais - Crie seu Site Profissional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #6366f1;
+        }
+
+        nav a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 30px;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #6366f1;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #6366f1;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .about p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .benefits {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .benefits li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #555;
+        }
+
+        .benefits li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #6366f1;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            border-radius: 10px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            background: #f9f9f9;
+        }
+
+        .features h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #1a1a1a;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Content Preview */
+        .content-preview {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .content-preview h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #1a1a1a;
+        }
+
+        .chapters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .chapter {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #6366f1;
+        }
+
+        .chapter h4 {
+            color: #6366f1;
+            margin-bottom: 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .chapter p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .pricing h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .pricing-subtitle {
+            font-size: 16px;
+            margin-bottom: 50px;
+            opacity: 0.95;
+        }
+
+        .price-box {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+            margin: 0 auto;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .price-amount {
+            font-size: 56px;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+
+        .price-currency {
+            font-size: 24px;
+        }
+
+        .price-description {
+            font-size: 14px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .paypal-button {
+            background: white;
+            color: #6366f1;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            display: inline-block;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: none;
+            margin-top: 20px;
+        }
+
+        .paypal-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .faq h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #1a1a1a;
+        }
+
+        .faq-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #f9f9f9;
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #f0f0f0;
+        }
+
+        .faq-answer {
+            padding: 20px;
+            color: #666;
+            line-height: 1.8;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-toggle {
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: #6366f1;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                margin-left: 0;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 250px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chapters {
+                grid-template-columns: 1fr;
+            }
+
+            .price-amount {
+                font-size: 40px;
+            }
+
+            .faq-container {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">ASY <span>Produtos Digitais</span></a>
+                <nav>
+                    <a href="#sobre">Sobre</a>
+                    <a href="#conteudo">Conteúdo</a>
+                    <a href="#preco">Preço</a>
+                    <a href="#faq">FAQ</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Crie seu Site Profissional sem Saber Programar</h1>
+            <p class="tagline">Aprenda a criar um site completo em poucas horas usando IA DeepSeek e ferramentas gratuitas</p>
+            <a href="#preco" class="cta-button">Comprar Agora - R$ 35</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="sobre">
+        <div class="container">
+            <div class="about-content">
+                <div>
+                    <h2>Por que você precisa deste e-book?</h2>
+                    <p>Ter um site profissional é essencial para qualquer negócio nos dias de hoje. Mas a maioria das pessoas acredita que é complicado, caro e exige conhecimento técnico.</p>
+                    <p>Este e-book prova que isso é um mito. Você aprenderá de forma fácil e prática como criar um site completo, responsivo e profissional, mesmo sem saber absolutamente nada sobre programação ou design.</p>
+                    <ul class="benefits">
+                        <li>Passo a passo detalhado e fácil de seguir</li>
+                        <li>Usa apenas ferramentas gratuitas</li>
+                        <li>Sem necessidade de conhecimento técnico</li>
+                        <li>Seu site no ar em poucas horas</li>
+                        <li>Com domínio próprio e profissional</li>
+                        <li>Suporte para atualizar sempre que quiser</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    📱 Seu Site Profissional Aqui
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>O que você vai aprender</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>DeepSeek & IA</h3>
+                    <p>Como usar inteligência artificial para gerar o código do seu site automaticamente</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💻</div>
+                    <h3>HTML & CSS</h3>
+                    <p>Entenda os conceitos básicos sem precisar programar</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>GitHub</h3>
+                    <p>Como guardar seu código online de forma segura e profissional</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Vercel</h3>
+                    <p>Publique seu site gratuitamente com hospedagem de qualidade profissional</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Domínio Próprio</h3>
+                    <p>Compre e configure seu domínio .com.br de forma simples</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Atualizar Sempre</h3>
+                    <p>Aprenda a manter seu site sempre atualizado com novos conteúdos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Preview -->
+    <section class="content-preview" id="conteudo">
+        <div class="container">
+            <h2>O que está dentro do e-book</h2>
+            <div class="chapters">
+                <div class="chapter">
+                    <h4>Capítulo 1</h4>
+                    <p>Os primeiros conceitos (site, HTML e IA)</p>
+                </div>
+                <div class="chapter">
+                    <h4>Capítulo 2</h4>
+                    <p>Conhecendo o DeepSeek e a arte de fazer prompts</p>
+                </div>
+                <div class="chapter">
+                    <h4>Capítulo 3</h4>
+                    <p>Planejando o conteúdo do seu site</p>
+                </div>
+                <div class="chapter">
+                    <h4>Capítulo 4</h4>
+                    <p>Montando o prompt perfeito para o DeepSeek</p>
+                </div>
+                <div class="chapter">
+                    <h4>Capítulo 5</h4>
+                    <p>Gerando o código do site com o DeepSeek</p>
+                </div>
+                <div class="chapter">
+                    <h4>Capítulo 6</h4>
+                    <p>Salvando o arquivo do site no seu computador</p>
+                </div>
+                <div class="chapter">
+                    <h4>Capítulo 7</h4>
+                    <p>GitHub: a pasta online que guarda seu código</p>
+                </div>
+                <div class="chapter">
+                    <h4>Capítulo 8</h4>
+                    <p>Vercel: o "publicador" mágico que coloca seu site no ar</p>
+                </div>
+                <div class="chapter">
+                    <h4>Capítulo 9</h4>
+                    <p>Comprando seu próprio domínio e conectando ao Vercel</p>
+                </div>
+                <div class="chapter">
+                    <h4>Capítulo 10</h4>
+                    <p>Atualizando o site sempre que quiser</p>
+                </div>
+                <div class="chapter">
+                    <h4>Conclusão</h4>
+                    <p>Seu negócio na vitrine digital</p>
+                </div>
+                <div class="chapter">
+                    <h4>Apêndices</h4>
+                    <p>Glossário, links úteis e FAQ completo</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="color: #666; font-size: 16px; margin-bottom: 20px;">
+                    <strong>Mais de 50 páginas</strong> de conteúdo prático, didático e fácil de seguir
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="preco">
+        <div class="container">
+            <h2>Invista no seu Futuro Digital</h2>
+            <p class="pricing-subtitle">Acesso completo ao e-book + todas as atualizações futuras</p>
+            <div class="price-box">
+                <p style="font-size: 16px;">Preço especial de lançamento</p>
+                <div class="price-amount">
+                    <span class="price-currency">R$</span> 35
+                </div>
+                <p class="price-description">Pagamento único via PayPal - Acesso imediato</p>
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="mand.santiago@gmail.com">
+                    <input type="hidden" name="item_name" value="E-book: Crie seu Site do Zero Usando IA">
+                    <input type="hidden" name="item_number" value="ebook-site-ia">
+                    <input type="hidden" name="amount" value="35.00">
+                    <input type="hidden" name="currency_code" value="BRL">
+                    <input type="hidden" name="return" value="https://seu-site.com/obrigado">
+                    <input type="hidden" name="cancel_return" value="https://seu-site.com">
+                    <input type="hidden" name="notify_url" value="https://seu-site.com/ipn">
+                    <button type="submit" class="paypal-button">💳 Comprar com PayPal</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2>Perguntas Frequentes</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Preciso saber programar?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Não! Este e-book foi feito especialmente para pessoas leigas. Você não precisa saber absolutamente nada sobre programação. A inteligência artificial faz todo o trabalho técnico por você.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quanto tempo leva para criar o site?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Se você já tem as informações do seu negócio reunidas, leva cerca de 1 a 2 horas para seguir todo o passo a passo e ter o site no ar. Com domínio próprio, adicione mais 30 minutos.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Preciso pagar hospedagem?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Não! Todas as ferramentas usadas (GitHub, Vercel, DeepSeek) são gratuitas. O único custo é a renovação anual do domínio, que custa cerca de R$ 40,00 por ano.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como recebo o e-book após comprar?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Após confirmar o pagamento no PayPal, você receberá um e-mail com o link de download do e-book em PDF. Você também terá acesso a uma página online onde pode ler o conteúdo completo.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Posso criar mais de um site?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Sim! Após aprender o método, você pode criar quantos sites quiser. O e-book ensina o processo completo que você poderá repetir para outros projetos.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Tem garantia ou reembolso?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        O e-book é um produto digital, então não temos política de reembolso. Porém, o conteúdo é muito prático e fácil de seguir. Se tiver dúvidas, pode entrar em contato conosco pelo e-mail.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p><strong>ASY Produtos Digitais</strong></p>
+            <p>Transformando ideias em realidade digital</p>
+            <div class="footer-links">
+                <a href="mailto:mand.santiago@gmail.com">📧 Contato</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#conteudo">Conteúdo</a>
+                <a href="#preco">Preço</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 ASY Produtos Digitais. Todos os direitos reservados.</p>
+                <p>Desenvolvido com ❤️ usando as mesmas ferramentas ensinadas no e-book</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                this.parentElement.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
